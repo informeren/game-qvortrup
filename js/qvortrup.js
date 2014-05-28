@@ -8,6 +8,7 @@
       initPosY: 520,
       inPlay: false,
       currentField: 0,
+      prevField: 0,
       wait: 0,
     },
     {
@@ -17,6 +18,7 @@
       initPosY: 517,
       inPlay: false,
       currentField: 0,
+      prevField: 0,
       wait: 0,
     },
     {
@@ -26,6 +28,7 @@
       initPosY: 521,
       inPlay: false,
       currentField: 0,
+      prevField: 0,
       wait: 0,
     },
     {
@@ -35,6 +38,7 @@
       initPosY: 520,
       inPlay: false,
       currentField: 0,
+      prevField: 0,
       wait: 0,
     },
   ];
@@ -501,6 +505,7 @@
           case 'special':
             newField = fields[currentField].value;
             movePlayerTo(currentPlayer, newField);
+            players[currentPlayer].prevField = fields[currentField].value;
             break;
         }
 
@@ -563,31 +568,109 @@
     top += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 30;
     left += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 10;
 
-    $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
-      if (fields[fieldIndex].message === '') {
-        // TODO: do unconditional increment here and ONLY here to make logic more obvious
-        currentPlayer++;
+    console.log(players[playerIndex]);
 
-        if (currentPlayer === numPlayers) {
-          currentPlayer = 0;
-        }
+    switch (players[playerIndex].prevField) {
+      case 50: // solitary
+        var solitaryTop = fields[players[playerIndex].currentField].posY;
+        var solitaryLeft = fields[players[playerIndex].currentField].posX;
 
-        prepareControls();
-      }
-      else {
-        $('#throwDice').hide();
-        if (fieldIndex > 50) {
-          $('#message p.done').show();
-          $('#message p.dismiss').hide();
-        }
-        else {
-          $('#message p.done').hide();
-          $('#message p.dismiss').show();
-        }
+        players[playerIndex].prevField = 0;
 
-        $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
-      }
-    });
+        $(players[playerIndex].id).animate({ top: solitaryTop + 'px', left: solitaryLeft + 'px'}, 750, function () {
+          console.log('FIRST MOVE');
+          $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
+            console.log('SECOND MOVE');
+            if (fields[fieldIndex].message === '') {
+              // TODO: do unconditional increment here and ONLY here to make logic more obvious
+              currentPlayer++;
+
+              if (currentPlayer === numPlayers) {
+                currentPlayer = 0;
+              }
+
+              prepareControls();
+            }
+            else {
+              $('#throwDice').hide();
+              if (fieldIndex > 50) {
+                $('#message p.done').show();
+                $('#message p.dismiss').hide();
+              }
+              else {
+                $('#message p.done').hide();
+                $('#message p.dismiss').show();
+              }
+
+              $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
+            }
+          });
+        });
+        break;
+      case 51: // infirmary
+        var infirmaryTop = fields[players[playerIndex].currentField].posY;
+        var infirmaryLeft = fields[players[playerIndex].currentField].posX;
+
+        players[playerIndex].prevField = 0;
+
+        $(players[playerIndex].id).animate({ top: infirmaryTop + 'px', left: infirmaryLeft + 'px'}, 750, function () {
+          console.log('FIRST MOVE');
+          $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
+            console.log('SECOND MOVE');
+            if (fields[fieldIndex].message === '') {
+              // TODO: do unconditional increment here and ONLY here to make logic more obvious
+              currentPlayer++;
+
+              if (currentPlayer === numPlayers) {
+                currentPlayer = 0;
+              }
+
+              prepareControls();
+            }
+            else {
+              $('#throwDice').hide();
+              if (fieldIndex > 50) {
+                $('#message p.done').show();
+                $('#message p.dismiss').hide();
+              }
+              else {
+                $('#message p.done').hide();
+                $('#message p.dismiss').show();
+              }
+
+              $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
+            }
+          });
+        });
+
+        break;
+      default:
+        $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
+          if (fields[fieldIndex].message === '') {
+            // TODO: do unconditional increment here and ONLY here to make logic more obvious
+            currentPlayer++;
+
+            if (currentPlayer === numPlayers) {
+              currentPlayer = 0;
+            }
+
+            prepareControls();
+          }
+          else {
+            $('#throwDice').hide();
+            if (fieldIndex > 50) {
+              $('#message p.done').show();
+              $('#message p.dismiss').hide();
+            }
+            else {
+              $('#message p.done').hide();
+              $('#message p.dismiss').show();
+            }
+
+            $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
+          }
+        });
+    }
 
     // Only update player position if the player is not on a special field
     if (fieldIndex < 50) {
