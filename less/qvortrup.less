@@ -1,7 +1,12 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: "ff-meta-serif-web-pro";
+  font-family: "ff-meta-serif-web-pro", serif;
+}
+
+a {
+  color: #f00;
+  text-decoration: none;
 }
 
 #game {
@@ -13,6 +18,31 @@ html, body {
   #player1, #player2, #player3, #player4 {
     position: absolute;
     background-color: #0f0;
+    height: 56px;
+    color: #fff;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+    padding: 2px 0 0 15px;
+    font-family: "ff-meta-web-pro", sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+  }
+  #player1 {
+    width: 45px;
+    background: transparent url(../img/q1.png) no-repeat;
+  }
+  #player2 {
+    width: 44px;
+    background: transparent url(../img/q2.png) no-repeat;
+  }
+  #player3 {
+    width: 41px;
+    padding-left: 11px;
+    background: transparent url(../img/q3.png) no-repeat;
+  }
+  #player4 {
+    width: 47px;
+    padding-left: 19px;
+    background: transparent url(../img/q4.png) no-repeat;
   }
 
   #instructions, #controls, #done, #message {
@@ -24,13 +54,25 @@ html, body {
   #instructions {
     width: 175px;
     height: 320px;
-    background-color: #0f0;
+
+    a {
+      font-family: "ff-meta-web-pro", sans-serif;
+      font-weight: 700;
+    }
   }
 
   #controls {
     width: 175px;
-    height: 200px;
-    background-color: #ccf;
+    height: 320px;
+
+    p.playerName, p.throw {
+      font-family: "ff-meta-web-pro", sans-serif;
+      font-weight: 700;
+      text-align: center;
+    }
+    p.dice, p.throw {
+      text-align: center;
+    }
   }
 
   #message {
@@ -38,14 +80,20 @@ html, body {
     left: 310px;
     width: 320px;
     height: 160px;
-    padding: 5px;
+    padding: 10px;
     background-color: #f00;
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
     border: 1px solid #f00;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
     -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+
+    a#dismiss {
+      font-family: "ff-meta-web-pro", sans-serif;
+      font-weight: 700;
+      color: #fff;
+    }
   }
 }
