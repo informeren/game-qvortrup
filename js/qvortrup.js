@@ -568,8 +568,6 @@
     top += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 30;
     left += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 10;
 
-    console.log(players[playerIndex]);
-
     switch (players[playerIndex].prevField) {
       case 50: // solitary
         var solitaryTop = fields[players[playerIndex].currentField].posY;
@@ -578,9 +576,7 @@
         players[playerIndex].prevField = 0;
 
         $(players[playerIndex].id).animate({ top: solitaryTop + 'px', left: solitaryLeft + 'px'}, 750, function () {
-          console.log('FIRST MOVE');
           $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
-            console.log('SECOND MOVE');
             if (fields[fieldIndex].message === '') {
               // TODO: do unconditional increment here and ONLY here to make logic more obvious
               currentPlayer++;
@@ -614,9 +610,7 @@
         players[playerIndex].prevField = 0;
 
         $(players[playerIndex].id).animate({ top: infirmaryTop + 'px', left: infirmaryLeft + 'px'}, 750, function () {
-          console.log('FIRST MOVE');
           $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
-            console.log('SECOND MOVE');
             if (fields[fieldIndex].message === '') {
               // TODO: do unconditional increment here and ONLY here to make logic more obvious
               currentPlayer++;
