@@ -152,7 +152,7 @@
     },
     {
       name: '16',
-      message: 'Du spiller smart på gårdturen og får tæsk. Vent en omgang.',
+      message: 'Du analyserer magtforholdet mellem to fløje i fængslet men taler lidt for højt. Vent en omgang.',
       type: 'wait',
       value: 1,
       posX: 612,
@@ -380,7 +380,7 @@
     },
     {
       name: 'Slut',
-      message: '',
+      message: 'Tillykke, du er ude af fængslet! Slå med terningen for at få afgjort din videre skæbne',
       posX: 731,
       posY: 487,
     },
@@ -457,7 +457,7 @@
 
         if (currentField === 49) {
           var offset = Math.ceil(result / 2);
-          newField = 50 + offset;
+          newField = 51 + offset;
           movePlayerTo(currentPlayer, newField);
         }
         else {
