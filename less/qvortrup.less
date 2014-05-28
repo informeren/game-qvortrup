@@ -1,0 +1,51 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "ff-meta-serif-web-pro";
+}
+
+#game {
+  position: relative;
+  width: 940px;
+  height: 600px;
+  background: #fff url(../img/background.png) no-repeat;
+
+  #player1, #player2, #player3, #player4 {
+    position: absolute;
+    background-color: #0f0;
+  }
+
+  #instructions, #controls, #done, #message {
+    position: absolute;
+    top: 160px;
+    left: 15px;
+  }
+
+  #instructions {
+    width: 175px;
+    height: 320px;
+    background-color: #0f0;
+  }
+
+  #controls {
+    width: 175px;
+    height: 200px;
+    background-color: #ccf;
+  }
+
+  #message {
+    top: 220px;
+    left: 310px;
+    width: 320px;
+    height: 160px;
+    padding: 5px;
+    background-color: #f00;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #f00;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 1);
+  }
+}
