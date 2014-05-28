@@ -1,4 +1,5 @@
 (function($) {
+
   var players = [
     {
       name: 'Spiller 1',
@@ -7,6 +8,7 @@
       initPosY: 550,
       inPlay: false,
       currentField: 0,
+      wait: 0,
     },
     {
       name: 'Spiller 2',
@@ -15,6 +17,7 @@
       initPosY: 550,
       inPlay: false,
       currentField: 0,
+      wait: 0,
     },
     {
       name: 'Spiller 3',
@@ -23,6 +26,7 @@
       initPosY: 550,
       inPlay: false,
       currentField: 0,
+      wait: 0,
     },
     {
       name: 'Spiller 4',
@@ -31,6 +35,7 @@
       initPosY: 550,
       inPlay: false,
       currentField: 0,
+      wait: 0,
     },
   ];
 
@@ -56,6 +61,8 @@
     {
       name: '3',
       message: 'Du begynder at pumpe jern, og din nye krop giver respekt på gangen. Ryk to felter frem.',
+      type: 'move',
+      value: 2,
       posX: 461,
       posY: 72,
     },
@@ -74,12 +81,16 @@
     {
       name: '6',
       message: 'Du skriver en bog om uretfærdighed i systemet. Vent en omgang.',
+      type: 'wait',
+      value: 1,
       posX: 634,
       posY: 89,
     },
     {
       name: '7',
       message: 'Du får en fængselstatovering, som giver fornyet respekt. Ryk et felt frem.',
+      type: 'move',
+      value: 1,
       posX: 717,
       posY: 122,
     },
@@ -92,6 +103,8 @@
     {
       name: '9',
       message: 'Du møder Ken B. Rasmussen på gårdturen, og I kommer op at slås. Ryk i isolation. ',
+      type: 'special',
+      value: 0,
       posX: 788,
       posY: 197,
     },
@@ -104,12 +117,16 @@
     {
       name: '11',
       message: 'TV2 bringer afsløringen "Danske fængsler svømmer i hash", og du hjælper fængselsinspektøren med pressehåndteringen. Ryk to felter frem.',
+      type: 'move',
+      value: 2,
       posX: 889,
       posY: 228,
     },
     {
       name: '12',
       message: 'Ingen af dine venner vil smugle hash med ind, når de kommer på besøg. Det skaber dårlig stemning på gangen. Ryk i frivillig isolation.',
+      type: 'special',
+      value: 0,
       posX: 815,
       posY: 252,
     },
@@ -128,18 +145,24 @@
     {
       name: '15',
       message: 'Du nægter at samle flere tøjklemmer. Ryk 2 felter tilbage.',
+      type: 'move',
+      value: -2,
       posX: 678,
       posY: 276,
     },
     {
       name: '16',
       message: 'Du spiller smart på gårdturen og får tæsk. Vent en omgang.',
+      type: 'wait',
+      value: 1,
       posX: 612,
       posY: 275,
     },
     {
       name: '17',
       message: 'Lars Løkke Rasmussen ringer og spørger dig til råds i en bilagssag, og du føler dig igen vigtig og værdsat. Ryk ét felt frem.',
+      type: 'move',
+      value: 1,
       posX: 500,
       posY: 271,
     },
@@ -151,13 +174,17 @@
     },
     {
       name: '19',
-      message: '',
+      message: 'En flink fyr ved navn Ali bruger dig som spindoktor og vinder langsomt magten på gangen. Du får det meget nemmere. Ryk tre felter frem.',
+      type: 'move',
+      value: 3,
       posX: 415,
       posY: 264,
     },
     {
       name: '20',
-      message: 'En flink fyr ved navn Ali bruger dig som spindoktor og vinder langsomt magten på gangen. Du får det meget nemmere. Ryk tre felter frem.',
+      message: 'Naser Khader udgiver en selvbiografi med et kapitel om dig. Ryk to felter tilbage.',
+      type: 'move',
+      value: -2,
       posX: 373,
       posY: 288,
     },
@@ -175,7 +202,9 @@
     },
     {
       name: '23',
-      message: 'Naser Khader udgiver en selvbiografi med et kapitel om dig. Ryk to felter tilbage.',
+      message: 'Klaus Riskær bliver fængslet og flytter ind på din afdeling. I holder sammen og står stærkere. Ryk ét felt frem.',
+      type: 'move',
+      value: 1,
       posX: 283,
       posY: 376,
     },
@@ -187,19 +216,25 @@
     },
     {
       name: '25',
-      message: 'Klaus Riskær bliver fængslet og flytter ind på din afdeling. I holder sammen og står stærkere. Ryk ét felt frem.',
+      message: 'Store Frank fra gangen gør dig til sin personlige hushjælp og tvinger dig til at vaske op hver dag. Vent en omgang.',
+      type: 'wait',
+      value: 1,
       posX: 375,
       posY: 357,
     },
     {
       name: '26',
-      message: 'Store Frank fra gangen gør dig til sin personlige hushjælp og tvinger dig til at vaske op hver dag. Vent en omgang.',
+      message: 'Du skylder Torsten fra nabogangen 100.000 kroner og forsøger at sælge ødegården for at skaffe kapital. Men din kone sætter sig imod. Ryk i frivillig isolation.',
+      type: 'special',
+      value: 0,
       posX: 495,
       posY: 381,
     },
     {
       name: '27',
-      message: 'Du skylder Torsten fra nabogangen 100.000 kroner og forsøger at sælge ødegården for at skaffe kapital. Men din kone sætter sig imod. Ryk i frivillig isolation.',
+      message: 'Store A har maddag, og du får dårlig mave. Ryk til sygeafsnittet.',
+      type: 'special',
+      value: 1,
       posX: 565,
       posY: 350,
     },
@@ -223,7 +258,9 @@
     },
     {
       name: '31',
-      message: 'Store A har maddag, og du får dårlig mave. Ryk til sygeafsnittet.',
+      message: 'Du får indsmuglet en mobiltelefon, og alting bliver meget nemmere. Ryk tre felter frem.',
+      type: 'move',
+      value: 3,
       posX: 777,
       posY: 317,
     },
@@ -247,13 +284,17 @@
     },
     {
       name: '35',
-      message: 'Du får indsmuglet en mobiltelefon, og alting bliver meget nemmere. Ryk tre felter frem.',
+      message: 'Politiken kommer forbi og laver et personligt interview om din hårde tid i fængslet. Ryk to felter frem.',
+      type: 'move',
+      value: 2,
       posX: 623,
       posY: 404,
     },
     {
       name: '36',
-      message: 'Politiken kommer forbi og laver et personligt interview om din hårde tid i fængslet. Ryk to felter frem.',
+      message: 'En kvindelig beundrer har læst et interview med dig i Politiken og kommer på ’ukontrolleret besøg’. Ryk tre felter frem.',
+      type: 'move',
+      value: 3,
       posX: 537,
       posY: 429,
     },
@@ -277,7 +318,9 @@
     },
     {
       name: '40',
-      message: 'En kvindelig beundrer har læst et interview med dig i Politiken og kommer på ’ukontrolleret besøg’. Ryk tre felter frem.',
+      message: 'En medfange gør tilnærmelser i badet. Flygt to felter frem.',
+      type: 'move',
+      value: 2,
       posX: 284,
       posY: 475,
     },
@@ -295,13 +338,17 @@
     },
     {
       name: '43',
-      message: 'En medfange gør tilnærmelser i badet. Flygt to felter frem.',
+      message: 'Du bliver tenor i fangekoret, og det virker. Ryk to felter frem.',
+      type: 'move',
+      value: 2,
       posX: 411,
       posY: 504,
     },
     {
       name: '44',
-      message: 'Du bliver tenor i fangekoret, og det virker. Ryk to felter frem.',
+      message: 'Der går betændelse i din fængselstatovering. Ryk direkte til sygeafsnittet.',
+      type: 'special',
+      value: 1,
       posX: 476,
       posY: 526,
     },
@@ -319,7 +366,9 @@
     },
     {
       name: '47',
-      message: 'Der går betændelse i din fængselstatovering. Ryk direkte til sygeafsnittet.',
+      message: 'Din urinprøve er ikke ren, og du kan ikke få udgang. Vent to omgange.',
+      type: 'wait',
+      value: 2,
       posX: 638,
       posY: 515,
     },
@@ -331,15 +380,12 @@
     },
     {
       name: 'Slut',
-      message: 'Tillykke. Du er kommet ud af fængslet! Stop op og slå med terningen for at finde din fremtidige skæbne.',
+      message: '',
       posX: 731,
       posY: 487,
     },
   ];
 
-  // Din urinprøve er ikke ren, og du kan ikke få udgang. Vent to omgange.
-
-/*
   var specialFields = [
     {
       name: 'Isolation',
@@ -368,11 +414,10 @@
     {
       name: 'Skæbne 3',
       message: 'Du slår dig ned som coach og yogainstruktør på Lolland og hjælper kendte mennesker, som har været igennem mediemøllen, med at komme på fode igen.',
-      posX: ,
-      posY: ,
+      posX: 847,
+      posY: 531,
     },
   ];
-*/
 
   var numPlayers = 0;
   var fudgeFactor = 30;
@@ -400,20 +445,6 @@
       var newField = currentField + result;
 
       movePlayerTo(currentPlayer, newField);
-
-      if (fields[newField].message === '') {
-        currentPlayer++;
-
-        if (currentPlayer === numPlayers) {
-          currentPlayer = 0;
-        }
-
-        prepareControls();
-      }
-      else {
-        $('#throwDice').hide();
-        $('#message').children('.message').text(fields[newField].message).parent().fadeIn(250);
-      }
     });
 
     $('#dismiss').click(function (event) {
@@ -424,10 +455,27 @@
 
         // perform additional actions
 
-        // move control to next active player
-        currentPlayer++;
-        if (currentPlayer === numPlayers) {
-          currentPlayer = 0;
+        var currentField = players[currentPlayer].currentField;
+        var type = fields[currentField].type;
+
+        switch (type) {
+          case 'move':
+            var newField = currentField + fields[currentField].value;
+            movePlayerTo(currentPlayer, newField);
+            break;
+          case 'wait':
+            players[currentPlayer].wait = fields[currentField].value;
+
+            // move control to next active player
+            currentPlayer++;
+            if (currentPlayer === numPlayers) {
+              currentPlayer = 0;
+            }
+
+            break;
+          case 'special':
+            console.log('SPECIAL');
+            break;
         }
 
         prepareControls();
@@ -479,7 +527,22 @@
     top += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2;
     left += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2;
 
-    $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 500);
+    $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
+      if (fields[fieldIndex].message === '') {
+        // TODO: do unconditional increment here and ONLY here to make logic more obvious
+        currentPlayer++;
+
+        if (currentPlayer === numPlayers) {
+          currentPlayer = 0;
+        }
+
+        prepareControls();
+      }
+      else {
+        $('#throwDice').hide();
+        $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
+      }
+    });
 
     players[playerIndex].currentField = fieldIndex;
   }
