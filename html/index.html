@@ -23,11 +23,11 @@
         </p>
         <form id="playerForm">
           <div class="wrapper">
-            <input type="radio" name="players" id="oneplayer" value="1">
+            <input type="radio" name="players" id="oneplayer" value="1" checked="checked">
             <label for="oneplayer">1 spiller</label>
           </div>
           <div class="wrapper">
-            <input type="radio" name="players" id="twoplayer" value="2" checked="checked">
+            <input type="radio" name="players" id="twoplayer" value="2">
             <label for="oneplayer">2 spillere</label>
           </div>
           <div class="wrapper">
@@ -40,26 +40,35 @@
           </div>
         </form>
         <p>
-          <a href="#" id="buttonStart">Start spillet!</a>
+          <a href="#" id="buttonStart">Start spillet »</a>
         </p>
       </div>
       <div id="controls">
         <p class="playerName"></p>
-        <p>
-          <span id="diceValue">0</span>
+        <p class="dice">
+          <img src="./img/dice.gif" width="80" height="80" alt="Terning" id="dice1">
         </p>
-        <p>
+        <p class="dice">
+          <img src="./img/dice.gif" width="80" height="80" alt="Terning" id="dice2">
+        </p>
+        <p class="dice">
+          <img src="./img/dice.gif" width="80" height="80" alt="Terning" id="dice3">
+        </p>
+        <p class="throw">
           <a href="#" id="throwDice">Kast terningen!</a>
         </p>
       </div>
-      <div id="player1">P1</div>
-      <div id="player2">P2</div>
-      <div id="player3">P3</div>
-      <div id="player4">P4</div>
+      <div id="player1">1</div>
+      <div id="player2">2</div>
+      <div id="player3">3</div>
+      <div id="player4">4</div>
       <div id="message">
         <p class="message"></p>
-        <p>
-          <a href="" id="dismiss">Dismiss</a>
+        <p class="done">
+          Tak for spillet!
+        </p>
+        <p class="dismiss">
+          <a href="#" id="dismiss">Fortsæt »</a>
         </p>
       </div>
       <div id="done">Done</div>
