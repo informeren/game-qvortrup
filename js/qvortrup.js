@@ -4,8 +4,8 @@
     {
       name: 'Spiller 1',
       id: '#player1',
-      initPosX: 30,
-      initPosY: 550,
+      initPosX: 20,
+      initPosY: 520,
       inPlay: false,
       currentField: 0,
       wait: 0,
@@ -13,8 +13,8 @@
     {
       name: 'Spiller 2',
       id: '#player2',
-      initPosX: 80,
-      initPosY: 550,
+      initPosX: 68,
+      initPosY: 517,
       inPlay: false,
       currentField: 0,
       wait: 0,
@@ -22,8 +22,8 @@
     {
       name: 'Spiller 3',
       id: '#player3',
-      initPosX: 130,
-      initPosY: 550,
+      initPosX: 117,
+      initPosY: 521,
       inPlay: false,
       currentField: 0,
       wait: 0,
@@ -31,8 +31,8 @@
     {
       name: 'Spiller 4',
       id: '#player4',
-      initPosX: 180,
-      initPosY: 550,
+      initPosX: 162,
+      initPosY: 520,
       inPlay: false,
       currentField: 0,
       wait: 0,
@@ -102,9 +102,9 @@
     },
     {
       name: '9',
-      message: 'Du møder Ken B. Rasmussen på gårdturen, og I kommer op at slås. Ryk i isolation. ',
+      message: 'Du møder Ken B. Rasmussen på gårdturen, og I kommer op at slås. Ryk i isolation.',
       type: 'special',
-      value: 0,
+      value: 50,
       posX: 788,
       posY: 197,
     },
@@ -126,7 +126,7 @@
       name: '12',
       message: 'Ingen af dine venner vil smugle hash med ind, når de kommer på besøg. Det skaber dårlig stemning på gangen. Ryk i frivillig isolation.',
       type: 'special',
-      value: 0,
+      value: 50,
       posX: 815,
       posY: 252,
     },
@@ -226,7 +226,7 @@
       name: '26',
       message: 'Du skylder Torsten fra nabogangen 100.000 kroner og forsøger at sælge ødegården for at skaffe kapital. Men din kone sætter sig imod. Ryk i frivillig isolation.',
       type: 'special',
-      value: 0,
+      value: 50,
       posX: 495,
       posY: 381,
     },
@@ -234,7 +234,7 @@
       name: '27',
       message: 'Store A har maddag, og du får dårlig mave. Ryk til sygeafsnittet.',
       type: 'special',
-      value: 1,
+      value: 51,
       posX: 565,
       posY: 350,
     },
@@ -348,7 +348,7 @@
       name: '44',
       message: 'Der går betændelse i din fængselstatovering. Ryk direkte til sygeafsnittet.',
       type: 'special',
-      value: 1,
+      value: 51,
       posX: 476,
       posY: 526,
     },
@@ -384,9 +384,7 @@
       posX: 731,
       posY: 487,
     },
-  ];
 
-  var specialFields = [
     {
       name: 'Isolation',
       message: '',
@@ -420,7 +418,7 @@
   ];
 
   var numPlayers = 0;
-  var fudgeFactor = 30;
+  var fudgeFactor = 20;
   var currentPlayer = 0;
 
   $(function() {
@@ -438,13 +436,39 @@
     $('#throwDice').click(function (event) {
       event.preventDefault();
 
-      var result = throwDice();
-      $('#diceValue').text(result);
+      if (players[currentPlayer].wait > 0) {
+        players[currentPlayer].wait--;
 
-      var currentField = players[currentPlayer].currentField;
-      var newField = currentField + result;
+        currentPlayer++;
+        if (currentPlayer === numPlayers) {
+          currentPlayer = 0;
+        }
 
-      movePlayerTo(currentPlayer, newField);
+        prepareControls();
+      }
+      else {
+        var result = throwDice();
+
+        // TODO: move to separate function?
+        $('#dice1').attr('src', './img/dice' + result + '.png');
+
+        var currentField = players[currentPlayer].currentField;
+        var newField = currentField + result;
+
+        if (currentField === 49) {
+          var offset = Math.ceil(result / 2);
+          newField = 50 + offset;
+          movePlayerTo(currentPlayer, newField);
+        }
+        else {
+          if (newField > 49) {
+            movePlayerTo(currentPlayer, currentField);
+          }
+          else {
+            movePlayerTo(currentPlayer, newField);
+          }
+        }
+      }
     });
 
     $('#dismiss').click(function (event) {
@@ -457,10 +481,11 @@
 
         var currentField = players[currentPlayer].currentField;
         var type = fields[currentField].type;
+        var newField;
 
         switch (type) {
           case 'move':
-            var newField = currentField + fields[currentField].value;
+            newField = currentField + fields[currentField].value;
             movePlayerTo(currentPlayer, newField);
             break;
           case 'wait':
@@ -474,7 +499,8 @@
 
             break;
           case 'special':
-            console.log('SPECIAL');
+            newField = fields[currentField].value;
+            movePlayerTo(currentPlayer, newField);
             break;
         }
 
@@ -485,6 +511,8 @@
 
   function initGame() {
     $('#controls').hide();
+    $('#dice2').hide();
+    $('#dice3').hide();
     $('#message').hide();
     $('#done').hide();
     $('#buttonStart').click(function (event) {
@@ -517,6 +545,14 @@
 
   function prepareControls() {
     $('#controls .playerName').text(players[currentPlayer].name);
+
+    if (players[currentPlayer].wait > 0) {
+      $('#throwDice').text('Vent en omgang');
+    }
+    else {
+      $('#throwDice').text('Kast terningen!');
+    }
+
     $('#throwDice').show();
   }
 
@@ -524,8 +560,8 @@
     var top = fields[fieldIndex].posY;
     var left = fields[fieldIndex].posX;
 
-    top += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2;
-    left += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2;
+    top += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 30;
+    left += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 10;
 
     $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
       if (fields[fieldIndex].message === '') {
@@ -540,11 +576,26 @@
       }
       else {
         $('#throwDice').hide();
+        if (fieldIndex > 50) {
+          $('#message p.done').show();
+          $('#message p.dismiss').hide();
+        }
+        else {
+          $('#message p.done').hide();
+          $('#message p.dismiss').show();
+        }
+
         $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
       }
     });
 
-    players[playerIndex].currentField = fieldIndex;
+    // Only update player position if the player is not on a special field
+    if (fieldIndex < 50) {
+      players[playerIndex].currentField = fieldIndex;
+    }
+    if (fieldIndex === 51) {
+      players[playerIndex].currentField = 21;
+    }
   }
 
   // Return a random number between 1 and 6 (inclusive)
