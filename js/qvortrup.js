@@ -462,7 +462,7 @@
         }
         else {
           if (newField > 49) {
-            movePlayerTo(currentPlayer, currentField);
+            movePlayerTo(currentPlayer, 49);
           }
           else {
             movePlayerTo(currentPlayer, newField);
