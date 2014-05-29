@@ -337,33 +337,39 @@
     },
   ];
 
+  // The number of people playing the game.
   var numPlayers = 0;
+
+  // The max amount of pixels to offset player pieces on a field to avoid overlap.
   var fudgeFactor = 10;
+
+  // Keeps track of whose turn it is.
   var currentPlayer = 0;
 
+  // Inititalize the game.
   $(function() {
     initGamePieces();
+    initClickHandlers();
     initGame();
   });
 
+  // Move the player pieces to their starting position.
   function initGamePieces() {
     $.each(players, function (index) {
       var top = players[index].initPosY;
       var left = players[index].initPosX;
       $(players[index].id).css({ top: top + 'px', left: left + 'px'});
     });
+  }
 
+  // Add click handlers for throwing the dice and dismissing messages.
+  function initClickHandlers() {
     $('#throwDice').click(function (event) {
       event.preventDefault();
 
       if (players[currentPlayer].wait > 0) {
         players[currentPlayer].wait--;
-
-        currentPlayer++;
-        if (currentPlayer === numPlayers) {
-          currentPlayer = 0;
-        }
-
+        nextPlayer();
         prepareControls();
       }
       else {
@@ -410,13 +416,7 @@
             break;
           case 'wait':
             players[currentPlayer].wait = fields[currentField].value;
-
-            // move control to next active player
-            currentPlayer++;
-            if (currentPlayer === numPlayers) {
-              currentPlayer = 0;
-            }
-
+            nextPlayer();
             break;
           case 'special':
             newField = fields[currentField].value;
@@ -498,7 +498,9 @@
         players[playerIndex].prevField = 0;
 
         $(players[playerIndex].id).animate({ top: solitaryTop + 'px', left: solitaryLeft + 'px'}, 750, function () {
-          $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, movePlayer(playerIndex, fieldIndex));
+          $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
+            movePlayer(playerIndex, fieldIndex);
+          });
         });
         break;
       case 51: // infirmary
@@ -506,11 +508,15 @@
         var infirmaryLeft = fields[players[playerIndex].currentField].posX - 10;
         players[playerIndex].prevField = 0;
         $(players[playerIndex].id).animate({ top: infirmaryTop + 'px', left: infirmaryLeft + 'px'}, 750, function () {
-          $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, movePlayer(playerIndex, fieldIndex));
+          $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
+            movePlayer(playerIndex, fieldIndex);
+          });
         });
         break;
       default:
-        $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, movePlayer(playerIndex, fieldIndex));
+        $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
+          movePlayer(playerIndex, fieldIndex);
+        });
     }
 
     // Only update player position if the player is not on a special field
@@ -537,14 +543,16 @@
       $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
     }
     else {
-      // TODO: do unconditional increment here and ONLY here to make logic more obvious
-      currentPlayer++;
-
-      if (currentPlayer === numPlayers) {
-        currentPlayer = 0;
-      }
-
+      nextPlayer();
       prepareControls();
+    }
+  }
+
+  // Let the next player have his turn.
+  function nextPlayer() {
+    currentPlayer++;
+    if (currentPlayer === numPlayers) {
+      currentPlayer = 0;
     }
   }
 
