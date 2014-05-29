@@ -45,17 +45,14 @@
 
   var fields = [
     {
-      message: '',
       posX: 262,
       posY: 85,
     },
     {
-      message: '',
       posX: 345,
       posY: 93,
     },
     {
-      message: '',
       posX: 391,
       posY: 92,
     },
@@ -67,12 +64,10 @@
       posY: 72,
     },
     {
-      message: '',
       posX: 537,
       posY: 75,
     },
     {
-      message: '',
       posX: 589,
       posY: 73,
     },
@@ -91,7 +86,6 @@
       posY: 122,
     },
     {
-      message: '',
       posX: 763,
       posY: 106,
     },
@@ -103,7 +97,6 @@
       posY: 197,
     },
     {
-      message: '',
       posX: 878,
       posY: 158,
     },
@@ -122,12 +115,10 @@
       posY: 252,
     },
     {
-      message: '',
       posX: 763,
       posY: 259,
     },
     {
-      message: '',
       posX: 722,
       posY: 270,
     },
@@ -153,7 +144,6 @@
       posY: 271,
     },
     {
-      message: '',
       posX: 455,
       posY: 236,
     },
@@ -172,12 +162,10 @@
       posY: 288,
     },
     {
-      message: '',
       posX: 313,
       posY: 307,
     },
     {
-      message: '',
       posX: 273,
       posY: 331,
     },
@@ -189,7 +177,6 @@
       posY: 376,
     },
     {
-      message: '',
       posX: 332,
       posY: 376,
     },
@@ -215,17 +202,14 @@
       posY: 350,
     },
     {
-      message: '',
       posX: 611,
       posY: 355,
     },
     {
-      message: '',
       posX: 663,
       posY: 347,
     },
     {
-      message: '',
       posX: 718,
       posY: 333,
     },
@@ -237,17 +221,14 @@
       posY: 317,
     },
     {
-      message: '',
       posX: 717,
       posY: 382,
     },
     {
-      message: '',
       posX: 712,
       posY: 431,
     },
     {
-      message: '',
       posX: 668,
       posY: 447,
     },
@@ -266,17 +247,14 @@
       posY: 429,
     },
     {
-      message: '',
       posX: 396,
       posY: 462,
     },
     {
-      message: '',
       posX: 363,
       posY: 436,
     },
     {
-      message: '',
       posX: 318,
       posY: 446,
     },
@@ -288,12 +266,10 @@
       posY: 475,
     },
     {
-      message: '',
       posX: 330,
       posY: 525,
     },
     {
-      message: '',
       posX: 371,
       posY: 539,
     },
@@ -312,12 +288,10 @@
       posY: 526,
     },
     {
-      message: '',
       posX: 551,
       posY: 543,
     },
     {
-      message: '',
       posX: 593,
       posY: 548,
     },
@@ -329,7 +303,6 @@
       posY: 515,
     },
     {
-      message: '',
       posX: 678,
       posY: 493,
     },
@@ -340,12 +313,10 @@
     },
 
     {
-      message: '',
       posX: 869,
       posY: 62,
     },
     {
-      message: '',
       posX: 309,
       posY: 199,
     },
@@ -496,7 +467,14 @@
     $('#controls .playerName').text(players[currentPlayer].name);
 
     if (players[currentPlayer].wait > 0) {
-      $('#throwDice').text('Vent en omgang');
+      switch (players[currentPlayer].wait) {
+        case 1:
+          $('#throwDice').text('Vent en omgang');
+          break;
+        case 2:
+          $('#throwDice').text('Vent to omgange');
+          break;
+      }
     }
     else {
       $('#throwDice').text('Kast terningen!');
@@ -545,17 +523,7 @@
   }
 
   function movePlayer(playerIndex, fieldIndex) {
-    if (fields[fieldIndex].message === '') {
-      // TODO: do unconditional increment here and ONLY here to make logic more obvious
-      currentPlayer++;
-
-      if (currentPlayer === numPlayers) {
-        currentPlayer = 0;
-      }
-
-      prepareControls();
-    }
-    else {
+    if ('message' in fields[fieldIndex]) {
       $('#throwDice').hide();
       if (fieldIndex > 50) {
         $('#message p.done').show();
@@ -567,6 +535,16 @@
       }
 
       $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
+    }
+    else {
+      // TODO: do unconditional increment here and ONLY here to make logic more obvious
+      currentPlayer++;
+
+      if (currentPlayer === numPlayers) {
+        currentPlayer = 0;
+      }
+
+      prepareControls();
     }
   }
 
