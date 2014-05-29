@@ -395,7 +395,7 @@
   // The number of people playing the game.
   var numPlayers = 0;
 
-  // The max amount of pixels to offset player pieces on a field to avoid overlap.
+  // The max amount of pixels to offset pieces on a field to avoid overlap.
   var fudgeFactor = 10;
 
   // Keeps track of whose turn it is.
@@ -421,8 +421,11 @@
   function initClickHandlers() {
     $('#throwDice').click(function (event) {
       event.preventDefault();
+      $(this).hide();
+
       var result;
 
+      // This is a normal turn, throw the dice and move the player.
       if (players[currentPlayer].wait === 0) {
         result = throwDice();
         updateDice(result);
@@ -431,11 +434,15 @@
         var newField = currentField + result;
 
         if (currentField === 49) {
+          // From the goal we can move to one of three fields at the end of the
+          // fields array.
           var offset = Math.ceil(result / 2);
           newField = 51 + offset;
           movePlayerTo(currentPlayer, newField);
         }
         else {
+          // If the player overshoots the goal, just move her there, otherwise
+          // do a normal move.
           if (newField > 49) {
             movePlayerTo(currentPlayer, 49);
           }
@@ -445,15 +452,18 @@
         }
       }
       else {
+        // The player has to miss one or more turns.
         if (players[currentPlayer].wait > 0) {
           players[currentPlayer].wait--;
           nextPlayer();
           prepareControls();
         }
+        // The player is in solitary cofinement.
         if (players[currentPlayer].wait < 0) {
           result = throwDice();
           updateDice(result);
 
+          // The player must roll 5 or 6 to get out.
           if (result > 4) {
             players[currentPlayer].wait = 0;
             $(players[currentPlayer].id).animate({ top: '82px', left: '838px'}, 750);
@@ -475,6 +485,7 @@
         var type = fields[currentField].type;
         var newField;
 
+        // Perform an action based on the event type.
         switch (type) {
           case 'move':
             newField = currentField + fields[currentField].value;
@@ -531,6 +542,7 @@
     $('#done').hide();
   }
 
+  // Resets the controls at the beginning of a new turn.
   function prepareControls() {
     $('#controls .playerName').text(atob(players[currentPlayer].name));
 
@@ -559,7 +571,7 @@
     left += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 10;
 
     switch (players[playerIndex].prevField) {
-      case 50: // solitary
+      case 50:
         var solitaryTop = fields[players[playerIndex].currentField].posY - 30;
         var solitaryLeft = fields[players[playerIndex].currentField].posX - 10;
 
@@ -598,7 +610,6 @@
 
   function movePlayer(playerIndex, fieldIndex) {
     if ('message' in fields[fieldIndex]) {
-      $('#throwDice').hide();
       if (fieldIndex > 50) {
         $('#message p.done').show();
         $('#message p.dismiss').hide();
