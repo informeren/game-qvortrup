@@ -2,7 +2,7 @@
 
   var players = [
     {
-      name: 'Spiller 1',
+      name: 'U3BpbGxlciAx',
       id: '#player1',
       initPosX: 20,
       initPosY: 520,
@@ -12,7 +12,7 @@
       wait: 0,
     },
     {
-      name: 'Spiller 2',
+      name: 'U3BpbGxlciAy',
       id: '#player2',
       initPosX: 68,
       initPosY: 517,
@@ -22,7 +22,7 @@
       wait: 0,
     },
     {
-      name: 'Spiller 3',
+      name: 'U3BpbGxlciAz',
       id: '#player3',
       initPosX: 117,
       initPosY: 521,
@@ -32,7 +32,7 @@
       wait: 0,
     },
     {
-      name: 'Spiller 4',
+      name: 'U3BpbGxlciA0',
       id: '#player4',
       initPosX: 162,
       initPosY: 520,
@@ -45,293 +45,348 @@
 
   var fields = [
     {
+      // Start
       posX: 262,
       posY: 85,
     },
     {
+      // 1
       posX: 345,
       posY: 93,
     },
     {
+      // 2
       posX: 391,
       posY: 92,
     },
     {
-      message: 'Du begynder at pumpe jern, og din nye krop giver respekt på gangen. Ryk to felter frem.',
+      // 3: Du begynder at pumpe jern, og din nye krop giver respekt på gangen. Ryk to felter frem.
+      message: 'RHUgYmVneW5kZXIgYXQgcHVtcGUgamVybiwgb2cgZGluIG55ZSBrcm9wIGdpdmVyIHJlc3Bla3QgcOUgZ2FuZ2VuLiBSeWsgdG8gZmVsdGVyIGZyZW0u',
       type: 'move',
       value: 2,
       posX: 461,
       posY: 72,
     },
     {
+      // 4
       posX: 537,
       posY: 75,
     },
     {
+      // 5
       posX: 589,
       posY: 73,
     },
     {
-      message: 'Du skriver en bog om uretfærdighed i systemet. Vent en omgang.',
+      // 6: Du skriver en bog om uretfærdighed i systemet. Vent en omgang.
+      message: 'RHUgc2tyaXZlciBlbiBib2cgb20gdXJldGbmcmRpZ2hlZCBpIHN5c3RlbWV0LiBWZW50IGVuIG9tZ2FuZy4=',
       type: 'wait',
       value: 1,
       posX: 634,
       posY: 89,
     },
     {
-      message: 'Du får en fængselstatovering, som giver fornyet respekt. Ryk et felt frem.',
+      // 7: Du får en fængselstatovering, som giver fornyet respekt. Ryk et felt frem.
+      message: 'RHUgZuVyIGVuIGbmbmdzZWxzdGF0b3ZlcmluZywgc29tIGdpdmVyIGZvcm55ZXQgcmVzcGVrdC4gUnlrIGV0IGZlbHQgZnJlbS4=',
       type: 'move',
       value: 1,
       posX: 717,
       posY: 122,
     },
     {
+      // 8
       posX: 763,
       posY: 106,
     },
     {
-      message: 'Du møder Ken B. Rasmussen på gårdturen, og I kommer op at slås. Ryk i isolation.',
+      // 9: Du møder Ken B. Rasmussen på gårdturen, og I kommer op at slås. Ryk i isolation.
+      message: 'RHUgbfhkZXIgS2VuIEIuIFJhc211c3NlbiBw5SBn5XJkdHVyZW4sIG9nIEkga29tbWVyIG9wIGF0IHNs5XMuIFJ5ayBpIGlzb2xhdGlvbi4=',
       type: 'special',
       value: 50,
       posX: 788,
       posY: 197,
     },
     {
+      // 10
       posX: 878,
       posY: 158,
     },
     {
-      message: 'TV2 bringer afsløringen "Danske fængsler svømmer i hash", og du hjælper fængselsinspektøren med pressehåndteringen. Ryk to felter frem.',
+      // 11: TV2 bringer afsløringen "Danske fængsler svømmer i hash", og du hjælper fængselsinspektøren med pressehåndteringen. Ryk to felter frem.
+      message: 'VFYyIGJyaW5nZXIgYWZzbPhyaW5nZW4gIkRhbnNrZSBm5m5nc2xlciBzdvhtbWVyIGkgaGFzaCIsIG9nIGR1IGhq5mxwZXIgZuZuZ3NlbHNpbnNwZWt0+HJlbiBtZWQgcHJlc3NlaOVuZHRlcmluZ2VuLiBSeWsgdG8gZmVsdGVyIGZyZW0u',
       type: 'move',
       value: 2,
       posX: 889,
       posY: 228,
     },
     {
-      message: 'Ingen af dine venner vil smugle hash med ind, når de kommer på besøg. Det skaber dårlig stemning på gangen. Ryk i frivillig isolation.',
+      // 12: Ingen af dine venner vil smugle hash med ind, når de kommer på besøg. Det skaber dårlig stemning på gangen. Ryk i frivillig isolation.
+      message: 'SW5nZW4gYWYgZGluZSB2ZW5uZXIgdmlsIHNtdWdsZSBoYXNoIG1lZCBpbmQsIG7lciBkZSBrb21tZXIgcOUgYmVz+GcuIERldCBza2FiZXIgZOVybGlnIHN0ZW1uaW5nIHDlIGdhbmdlbi4gUnlrIGkgZnJpdmlsbGlnIGlzb2xhdGlvbi4=',
       type: 'special',
       value: 50,
       posX: 815,
       posY: 252,
     },
     {
+      // 13
       posX: 763,
       posY: 259,
     },
     {
+      // 14
       posX: 722,
       posY: 270,
     },
     {
-      message: 'Du nægter at samle flere tøjklemmer. Ryk 2 felter tilbage.',
+      // 15: Du nægter at samle flere tøjklemmer. Ryk 2 felter tilbage.
+      message: 'RHUgbuZndGVyIGF0IHNhbWxlIGZsZXJlIHT4amtsZW1tZXIuIFJ5ayAyIGZlbHRlciB0aWxiYWdlLg==',
       type: 'move',
       value: -2,
       posX: 678,
       posY: 276,
     },
     {
-      message: 'Du analyserer magtforholdet mellem to fløje i fængslet men taler lidt for højt. Vent en omgang.',
+      // 16: Du analyserer magtforholdet mellem to fløje i fængslet men taler lidt for højt. Vent en omgang.
+      message: 'RHUgYW5hbHlzZXJlciBtYWd0Zm9yaG9sZGV0IG1lbGxlbSB0byBmbPhqZSBpIGbmbmdzbGV0IG1lbiB0YWxlciBsaWR0IGZvciBo+Gp0LiBWZW50IGVuIG9tZ2FuZy4=',
       type: 'wait',
       value: 1,
       posX: 612,
       posY: 275,
     },
     {
-      message: 'Lars Løkke Rasmussen ringer og spørger dig til råds i en bilagssag, og du føler dig igen vigtig og værdsat. Ryk ét felt frem.',
+      // 17: Lars Løkke Rasmussen ringer og spørger dig til råds i en bilagssag, og du føler dig igen vigtig og værdsat. Ryk ét felt frem.
+      message: 'TGFycyBM+GtrZSBSYXNtdXNzZW4gcmluZ2VyIG9nIHNw+HJnZXIgZGlnIHRpbCBy5WRzIGkgZW4gYmlsYWdzc2FnLCBvZyBkdSBm+GxlciBkaWcgaWdlbiB2aWd0aWcgb2cgduZyZHNhdC4gUnlrIOl0IGZlbHQgZnJlbS4=',
       type: 'move',
       value: 1,
       posX: 500,
       posY: 271,
     },
     {
+      // 18
       posX: 455,
       posY: 236,
     },
     {
-      message: 'En flink fyr ved navn Ali bruger dig som spindoktor og vinder langsomt magten på gangen. Du får det meget nemmere. Ryk tre felter frem.',
+      // 19: En flink fyr ved navn Ali bruger dig som spindoktor og vinder langsomt magten på gangen. Du får det meget nemmere. Ryk tre felter frem.
+      message: 'RW4gZmxpbmsgZnlyIHZlZCBuYXZuIEFsaSBicnVnZXIgZGlnIHNvbSBzcGluZG9rdG9yIG9nIHZpbmRlciBsYW5nc29tdCBtYWd0ZW4gcOUgZ2FuZ2VuLiBEdSBm5XIgZGV0IG1lZ2V0IG5lbW1lcmUuIFJ5ayB0cmUgZmVsdGVyIGZyZW0u',
       type: 'move',
       value: 3,
       posX: 415,
       posY: 264,
     },
     {
-      message: 'Naser Khader udgiver en selvbiografi med et kapitel om dig. Ryk to felter tilbage.',
+      // 20: Naser Khader udgiver en selvbiografi med et kapitel om dig. Ryk to felter tilbage.
+      message: 'TmFzZXIgS2hhZGVyIHVkZ2l2ZXIgZW4gc2VsdmJpb2dyYWZpIG1lZCBldCBrYXBpdGVsIG9tIGRpZy4gUnlrIHRvIGZlbHRlciB0aWxiYWdlLg==',
       type: 'move',
       value: -2,
       posX: 373,
       posY: 288,
     },
     {
+      // 21
       posX: 313,
       posY: 307,
     },
     {
+      // 22
       posX: 273,
       posY: 331,
     },
     {
-      message: 'Klaus Riskær bliver fængslet og flytter ind på din afdeling. I holder sammen og står stærkere. Ryk ét felt frem.',
+      // 23: Klaus Riskær bliver fængslet og flytter ind på din afdeling. I holder sammen og står stærkere. Ryk ét felt frem.
+      message: 'S2xhdXMgUmlza+ZyIGJsaXZlciBm5m5nc2xldCBvZyBmbHl0dGVyIGluZCBw5SBkaW4gYWZkZWxpbmcuIEkgaG9sZGVyIHNhbW1lbiBvZyBzdOVyIHN05nJrZXJlLiBSeWsg6XQgZmVsdCBmcmVtLg==',
       type: 'move',
       value: 1,
       posX: 283,
       posY: 376,
     },
     {
+      // 24
       posX: 332,
       posY: 376,
     },
     {
-      message: 'Store Frank fra gangen gør dig til sin personlige hushjælp og tvinger dig til at vaske op hver dag. Vent en omgang.',
+      // 25: Store Frank fra gangen gør dig til sin personlige hushjælp og tvinger dig til at vaske op hver dag. Vent en omgang.
+      message: 'U3RvcmUgRnJhbmsgZnJhIGdhbmdlbiBn+HIgZGlnIHRpbCBzaW4gcGVyc29ubGlnZSBodXNoauZscCBvZyB0dmluZ2VyIGRpZyB0aWwgYXQgdmFza2Ugb3AgaHZlciBkYWcuIFZlbnQgZW4gb21nYW5nLg==',
       type: 'wait',
       value: 1,
       posX: 375,
       posY: 357,
     },
     {
-      message: 'Du skylder Torsten fra nabogangen 100.000 kroner og forsøger at sælge ødegården for at skaffe kapital. Men din kone sætter sig imod. Ryk i frivillig isolation.',
+      // 26: Du skylder Torsten fra nabogangen 100.000 kroner og forsøger at sælge ødegården for at skaffe kapital. Men din kone sætter sig imod. Ryk i frivillig isolation.
+      message: 'RHUgc2t5bGRlciBUb3JzdGVuIGZyYSBuYWJvZ2FuZ2VuIDEwMC4wMDAga3JvbmVyIG9nIGZvcnP4Z2VyIGF0IHPmbGdlIPhkZWflcmRlbiBmb3IgYXQgc2thZmZlIGthcGl0YWwuIE1lbiBkaW4ga29uZSBz5nR0ZXIgc2lnIGltb2QuIFJ5ayBpIGZyaXZpbGxpZyBpc29sYXRpb24u',
       type: 'special',
       value: 50,
       posX: 495,
       posY: 381,
     },
     {
-      message: 'Store A har maddag, og du får dårlig mave. Ryk til sygeafsnittet.',
+      // 27: Store A har maddag, og du får dårlig mave. Ryk til sygeafsnittet.
+      message: 'U3RvcmUgQSBoYXIgbWFkZGFnLCBvZyBkdSBm5XIgZOVybGlnIG1hdmUuIFJ5ayB0aWwgc3lnZWFmc25pdHRldC4=',
       type: 'special',
       value: 51,
       posX: 565,
       posY: 350,
     },
     {
+      // 28
       posX: 611,
       posY: 355,
     },
     {
+      // 29
       posX: 663,
       posY: 347,
     },
     {
+      // 30
       posX: 718,
       posY: 333,
     },
     {
-      message: 'Du får indsmuglet en mobiltelefon, og alting bliver meget nemmere. Ryk tre felter frem.',
+      // 31: Du får indsmuglet en mobiltelefon, og alting bliver meget nemmere. Ryk tre felter frem.
+      message: 'RHUgZuVyIGluZHNtdWdsZXQgZW4gbW9iaWx0ZWxlZm9uLCBvZyBhbHRpbmcgYmxpdmVyIG1lZ2V0IG5lbW1lcmUuIFJ5ayB0cmUgZmVsdGVyIGZyZW0u',
       type: 'move',
       value: 3,
       posX: 777,
       posY: 317,
     },
     {
+      // 32
       posX: 717,
       posY: 382,
     },
     {
+      // 33
       posX: 712,
       posY: 431,
     },
     {
+      // 34
       posX: 668,
       posY: 447,
     },
     {
-      message: 'Politiken kommer forbi og laver et personligt interview om din hårde tid i fængslet. Ryk to felter frem.',
+      // 35: Politiken kommer forbi og laver et personligt interview om din hårde tid i fængslet. Ryk to felter frem.
+      message: 'UG9saXRpa2VuIGtvbW1lciBmb3JiaSBvZyBsYXZlciBldCBwZXJzb25saWd0IGludGVydmlldyBvbSBkaW4gaOVyZGUgdGlkIGkgZuZuZ3NsZXQuIFJ5ayB0byBmZWx0ZXIgZnJlbS4=',
       type: 'move',
       value: 2,
       posX: 623,
       posY: 404,
     },
     {
-      message: 'En kvindelig beundrer har læst et interview med dig i Politiken og kommer på ’ukontrolleret besøg’. Ryk tre felter frem.',
+      // 36: En kvindelig beundrer har læst et interview med dig i Politiken og kommer på ’ukontrolleret besøg’. Ryk tre felter frem.
+      message: 'RW4ga3ZpbmRlbGlnIGJldW5kcmVyIGhhciBs5nN0IGV0IGludGVydmlldyBtZWQgZGlnIGkgUG9saXRpa2VuIG9nIGtvbW1lciBw5SA=' + '’' + 'dWtvbnRyb2xsZXJldCBiZXP4Zw==' + '’' + 'LiBSeWsgdHJlIGZlbHRlciBmcmVtLg==',
       type: 'move',
       value: 3,
       posX: 537,
       posY: 429,
     },
     {
+      // 37
       posX: 396,
       posY: 462,
     },
     {
+      // 38
       posX: 363,
       posY: 436,
     },
     {
+      // 39
       posX: 318,
       posY: 446,
     },
     {
-      message: 'En medfange gør tilnærmelser i badet. Flygt to felter frem.',
+      // 40: En medfange gør tilnærmelser i badet. Flygt to felter frem.
+      message: 'RW4gbWVkZmFuZ2UgZ/hyIHRpbG7mcm1lbHNlciBpIGJhZGV0LiBGbHlndCB0byBmZWx0ZXIgZnJlbS4=',
       type: 'move',
       value: 2,
       posX: 284,
       posY: 475,
     },
     {
+      // 41
       posX: 330,
       posY: 525,
     },
     {
+      // 42
       posX: 371,
       posY: 539,
     },
     {
-      message: 'Du bliver tenor i fangekoret, og det virker. Ryk to felter frem.',
+      // 43: Du bliver tenor i fangekoret, og det virker. Ryk to felter frem.
+      message: 'RHUgYmxpdmVyIHRlbm9yIGkgZmFuZ2Vrb3JldCwgb2cgZGV0IHZpcmtlci4gUnlrIHRvIGZlbHRlciBmcmVtLg==',
       type: 'move',
       value: 2,
       posX: 411,
       posY: 504,
     },
     {
-      message: 'Der går betændelse i din fængselstatovering. Ryk direkte til sygeafsnittet.',
+      // 44: Der går betændelse i din fængselstatovering. Ryk direkte til sygeafsnittet.
+      message: 'RGVyIGflciBiZXTmbmRlbHNlIGkgZGluIGbmbmdzZWxzdGF0b3ZlcmluZy4gUnlrIGRpcmVrdGUgdGlsIHN5Z2VhZnNuaXR0ZXQu',
       type: 'special',
       value: 51,
       posX: 476,
       posY: 526,
     },
     {
+      // 45
       posX: 551,
       posY: 543,
     },
     {
+      // 46
       posX: 593,
       posY: 548,
     },
     {
-      message: 'Din urinprøve er ikke ren, og du kan ikke få udgang. Vent to omgange.',
+      // 47: Din urinprøve er ikke ren, og du kan ikke få udgang. Vent to omgange.
+      message: 'RGluIHVyaW5wcvh2ZSBlciBpa2tlIHJlbiwgb2cgZHUga2FuIGlra2UgZuUgdWRnYW5nLiBWZW50IHRvIG9tZ2FuZ2Uu',
       type: 'wait',
       value: 2,
       posX: 638,
       posY: 515,
     },
     {
+      // 48
       posX: 678,
       posY: 493,
     },
     {
-      message: 'Tillykke, du er ude af fængslet! Slå med terningen for at få afgjort din videre skæbne',
+      // End: Tillykke, du er ude af fængslet! Slå med terningen for at få afgjort din videre skæbne.
+      message: 'VGlsbHlra2UsIGR1IGVyIHVkZSBhZiBm5m5nc2xldCEgU2zlIG1lZCB0ZXJuaW5nZW4gZm9yIGF0IGblIGFmZ2pvcnQgZGluIHZpZGVyZSBza+ZibmUu',
       posX: 731,
       posY: 487,
     },
 
     {
+      // 50
       posX: 869,
       posY: 62,
     },
     {
+      // 51
       posX: 309,
       posY: 199,
     },
     {
-      message: 'Du bliver pressemedarbejder i Ballerup Kommune med mulighed for forfremmelse.',
+      // 52: Du bliver pressemedarbejder i Ballerup Kommune med mulighed for forfremmelse.
+      message: 'RHUgYmxpdmVyIHByZXNzZW1lZGFyYmVqZGVyIGkgQmFsbGVydXAgS29tbXVuZSBtZWQgbXVsaWdoZWQgZm9yIGZvcmZyZW1tZWxzZS4=',
       posX: 891,
       posY: 337,
     },
     {
-      message: 'Du bliver genansat i dit gamle job som politisk kommentator på TV2 og Euroman laver et dobbeltinterview med dig og Jørgen Leth om at blive fyret og vende stærkt tilbage.',
+      // 53: Du bliver genansat i dit gamle job som politisk kommentator på TV2 og Euroman laver et dobbeltinterview med dig og Jørgen Leth om at blive fyret og vende stærkt tilbage.
+      message: 'RHUgYmxpdmVyIGdlbmFuc2F0IGkgZGl0IGdhbWxlIGpvYiBzb20gcG9saXRpc2sga29tbWVudGF0b3IgcOUgVFYyIG9nIEV1cm9tYW4gbGF2ZXIgZXQgZG9iYmVsdGludGVydmlldyBtZWQgZGlnIG9nIEr4cmdlbiBMZXRoIG9tIGF0IGJsaXZlIGZ5cmV0IG9nIHZlbmRlIHN05nJrdCB0aWxiYWdlLg==',
       posX: 828,
       posY: 464,
     },
     {
-      message: 'Du slår dig ned som coach og yogainstruktør på Lolland og hjælper kendte mennesker, som har været igennem mediemøllen, med at komme på fode igen.',
+      // 54: Du slår dig ned som coach og yogainstruktør på Lolland og hjælper kendte mennesker, som har været igennem mediemøllen, med at komme på fode igen.
+      message: 'RHUgc2zlciBkaWcgbmVkIHNvbSBjb2FjaCBvZyB5b2dhaW5zdHJ1a3T4ciBw5SBMb2xsYW5kIG9nIGhq5mxwZXIga2VuZHRlIG1lbm5lc2tlciwgc29tIGhhciB25nJldCBpZ2VubmVtIG1lZGllbfhsbGVuLCBtZWQgYXQga29tbWUgcOUgZm9kZSBpZ2VuLg==',
       posX: 847,
       posY: 531,
     },
@@ -477,7 +532,7 @@
   }
 
   function prepareControls() {
-    $('#controls .playerName').text(players[currentPlayer].name);
+    $('#controls .playerName').text(atob(players[currentPlayer].name));
 
     if (players[currentPlayer].wait > 0) {
       switch (players[currentPlayer].wait) {
@@ -553,7 +608,7 @@
         $('#message p.dismiss').show();
       }
 
-      $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
+      $('#message').children('.message').text(atob(fields[fieldIndex].message)).parent().fadeIn(250);
     }
     else {
       if (fieldIndex !== 49) {
