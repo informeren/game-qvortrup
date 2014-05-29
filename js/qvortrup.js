@@ -466,7 +466,9 @@
           // The player must roll 5 or 6 to get out.
           if (result > 4) {
             players[currentPlayer].wait = 0;
-            $(players[currentPlayer].id).animate({ top: '82px', left: '838px'}, 750);
+            var posX = fields[players[currentPlayer].currentField].posX - 10;
+            var posY = fields[players[currentPlayer].currentField].posY - 30;
+            $(players[currentPlayer].id).animate({ top: posY + 'px', left: posX + 'px'}, 750);
           }
 
           nextPlayer();
@@ -567,36 +569,27 @@
     var top = fields[fieldIndex].posY;
     var left = fields[fieldIndex].posX;
 
+    var player = players[playerIndex];
+
     top += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 30;
     left += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 10;
 
-    switch (players[playerIndex].prevField) {
-      case 50:
-        var solitaryTop = fields[players[playerIndex].currentField].posY - 30;
-        var solitaryLeft = fields[players[playerIndex].currentField].posX - 10;
+    if (player.prevField === 51) {
+      var specialTop = fields[player.currentField].posY - 30;
+      var specialLeft = fields[player.currentField].posX - 10;
 
-        players[playerIndex].prevField = 0;
+      players[playerIndex].prevField = 0;
 
-        $(players[playerIndex].id).animate({ top: solitaryTop + 'px', left: solitaryLeft + 'px'}, 750, function () {
-          $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
-            movePlayer(playerIndex, fieldIndex);
-          });
-        });
-        break;
-      case 51: // infirmary
-        var infirmaryTop = fields[players[playerIndex].currentField].posY - 30;
-        var infirmaryLeft = fields[players[playerIndex].currentField].posX - 10;
-        players[playerIndex].prevField = 0;
-        $(players[playerIndex].id).animate({ top: infirmaryTop + 'px', left: infirmaryLeft + 'px'}, 750, function () {
-          $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
-            movePlayer(playerIndex, fieldIndex);
-          });
-        });
-        break;
-      default:
+      $(players[playerIndex].id).animate({ top: specialTop + 'px', left: specialLeft + 'px'}, 750, function () {
         $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
           movePlayer(playerIndex, fieldIndex);
         });
+      });
+    }
+    else {
+      $(players[playerIndex].id).animate({ top: top + 'px', left: left + 'px'}, 750, function () {
+        movePlayer(playerIndex, fieldIndex);
+      });
     }
 
     // Only update player position if the player is not on a special field
