@@ -45,25 +45,21 @@
 
   var fields = [
     {
-      name: 'Start',
       message: '',
       posX: 262,
       posY: 85,
     },
     {
-      name: '1',
       message: '',
       posX: 345,
       posY: 93,
     },
     {
-      name: '2',
       message: '',
       posX: 391,
       posY: 92,
     },
     {
-      name: '3',
       message: 'Du begynder at pumpe jern, og din nye krop giver respekt på gangen. Ryk to felter frem.',
       type: 'move',
       value: 2,
@@ -71,19 +67,16 @@
       posY: 72,
     },
     {
-      name: '4',
       message: '',
       posX: 537,
       posY: 75,
     },
     {
-      name: '5',
       message: '',
       posX: 589,
       posY: 73,
     },
     {
-      name: '6',
       message: 'Du skriver en bog om uretfærdighed i systemet. Vent en omgang.',
       type: 'wait',
       value: 1,
@@ -91,7 +84,6 @@
       posY: 89,
     },
     {
-      name: '7',
       message: 'Du får en fængselstatovering, som giver fornyet respekt. Ryk et felt frem.',
       type: 'move',
       value: 1,
@@ -99,13 +91,11 @@
       posY: 122,
     },
     {
-      name: '8',
       message: '',
       posX: 763,
       posY: 106,
     },
     {
-      name: '9',
       message: 'Du møder Ken B. Rasmussen på gårdturen, og I kommer op at slås. Ryk i isolation.',
       type: 'special',
       value: 50,
@@ -113,13 +103,11 @@
       posY: 197,
     },
     {
-      name: '10',
       message: '',
       posX: 878,
       posY: 158,
     },
     {
-      name: '11',
       message: 'TV2 bringer afsløringen "Danske fængsler svømmer i hash", og du hjælper fængselsinspektøren med pressehåndteringen. Ryk to felter frem.',
       type: 'move',
       value: 2,
@@ -127,7 +115,6 @@
       posY: 228,
     },
     {
-      name: '12',
       message: 'Ingen af dine venner vil smugle hash med ind, når de kommer på besøg. Det skaber dårlig stemning på gangen. Ryk i frivillig isolation.',
       type: 'special',
       value: 50,
@@ -135,19 +122,16 @@
       posY: 252,
     },
     {
-      name: '13',
       message: '',
       posX: 763,
       posY: 259,
     },
     {
-      name: '14',
       message: '',
       posX: 722,
       posY: 270,
     },
     {
-      name: '15',
       message: 'Du nægter at samle flere tøjklemmer. Ryk 2 felter tilbage.',
       type: 'move',
       value: -2,
@@ -155,7 +139,6 @@
       posY: 276,
     },
     {
-      name: '16',
       message: 'Du analyserer magtforholdet mellem to fløje i fængslet men taler lidt for højt. Vent en omgang.',
       type: 'wait',
       value: 1,
@@ -163,7 +146,6 @@
       posY: 275,
     },
     {
-      name: '17',
       message: 'Lars Løkke Rasmussen ringer og spørger dig til råds i en bilagssag, og du føler dig igen vigtig og værdsat. Ryk ét felt frem.',
       type: 'move',
       value: 1,
@@ -171,13 +153,11 @@
       posY: 271,
     },
     {
-      name: '18',
       message: '',
       posX: 455,
       posY: 236,
     },
     {
-      name: '19',
       message: 'En flink fyr ved navn Ali bruger dig som spindoktor og vinder langsomt magten på gangen. Du får det meget nemmere. Ryk tre felter frem.',
       type: 'move',
       value: 3,
@@ -185,7 +165,6 @@
       posY: 264,
     },
     {
-      name: '20',
       message: 'Naser Khader udgiver en selvbiografi med et kapitel om dig. Ryk to felter tilbage.',
       type: 'move',
       value: -2,
@@ -193,19 +172,16 @@
       posY: 288,
     },
     {
-      name: '21',
       message: '',
       posX: 313,
       posY: 307,
     },
     {
-      name: '22',
       message: '',
       posX: 273,
       posY: 331,
     },
     {
-      name: '23',
       message: 'Klaus Riskær bliver fængslet og flytter ind på din afdeling. I holder sammen og står stærkere. Ryk ét felt frem.',
       type: 'move',
       value: 1,
@@ -213,13 +189,11 @@
       posY: 376,
     },
     {
-      name: '24',
       message: '',
       posX: 332,
       posY: 376,
     },
     {
-      name: '25',
       message: 'Store Frank fra gangen gør dig til sin personlige hushjælp og tvinger dig til at vaske op hver dag. Vent en omgang.',
       type: 'wait',
       value: 1,
@@ -227,7 +201,6 @@
       posY: 357,
     },
     {
-      name: '26',
       message: 'Du skylder Torsten fra nabogangen 100.000 kroner og forsøger at sælge ødegården for at skaffe kapital. Men din kone sætter sig imod. Ryk i frivillig isolation.',
       type: 'special',
       value: 50,
@@ -235,7 +208,6 @@
       posY: 381,
     },
     {
-      name: '27',
       message: 'Store A har maddag, og du får dårlig mave. Ryk til sygeafsnittet.',
       type: 'special',
       value: 51,
@@ -243,25 +215,21 @@
       posY: 350,
     },
     {
-      name: '28',
       message: '',
       posX: 611,
       posY: 355,
     },
     {
-      name: '29',
       message: '',
       posX: 663,
       posY: 347,
     },
     {
-      name: '30',
       message: '',
       posX: 718,
       posY: 333,
     },
     {
-      name: '31',
       message: 'Du får indsmuglet en mobiltelefon, og alting bliver meget nemmere. Ryk tre felter frem.',
       type: 'move',
       value: 3,
@@ -269,25 +237,21 @@
       posY: 317,
     },
     {
-      name: '32',
       message: '',
       posX: 717,
       posY: 382,
     },
     {
-      name: '33',
       message: '',
       posX: 712,
       posY: 431,
     },
     {
-      name: '34',
       message: '',
       posX: 668,
       posY: 447,
     },
     {
-      name: '35',
       message: 'Politiken kommer forbi og laver et personligt interview om din hårde tid i fængslet. Ryk to felter frem.',
       type: 'move',
       value: 2,
@@ -295,7 +259,6 @@
       posY: 404,
     },
     {
-      name: '36',
       message: 'En kvindelig beundrer har læst et interview med dig i Politiken og kommer på ’ukontrolleret besøg’. Ryk tre felter frem.',
       type: 'move',
       value: 3,
@@ -303,25 +266,21 @@
       posY: 429,
     },
     {
-      name: '37',
       message: '',
       posX: 396,
       posY: 462,
     },
     {
-      name: '38',
       message: '',
       posX: 363,
       posY: 436,
     },
     {
-      name: '39',
       message: '',
       posX: 318,
       posY: 446,
     },
     {
-      name: '40',
       message: 'En medfange gør tilnærmelser i badet. Flygt to felter frem.',
       type: 'move',
       value: 2,
@@ -329,19 +288,16 @@
       posY: 475,
     },
     {
-      name: '41',
       message: '',
       posX: 330,
       posY: 525,
     },
     {
-      name: '42',
       message: '',
       posX: 371,
       posY: 539,
     },
     {
-      name: '43',
       message: 'Du bliver tenor i fangekoret, og det virker. Ryk to felter frem.',
       type: 'move',
       value: 2,
@@ -349,7 +305,6 @@
       posY: 504,
     },
     {
-      name: '44',
       message: 'Der går betændelse i din fængselstatovering. Ryk direkte til sygeafsnittet.',
       type: 'special',
       value: 51,
@@ -357,19 +312,16 @@
       posY: 526,
     },
     {
-      name: '45',
       message: '',
       posX: 551,
       posY: 543,
     },
     {
-      name: '46',
       message: '',
       posX: 593,
       posY: 548,
     },
     {
-      name: '47',
       message: 'Din urinprøve er ikke ren, og du kan ikke få udgang. Vent to omgange.',
       type: 'wait',
       value: 2,
@@ -377,44 +329,37 @@
       posY: 515,
     },
     {
-      name: '48',
       message: '',
       posX: 678,
       posY: 493,
     },
     {
-      name: 'Slut',
       message: 'Tillykke, du er ude af fængslet! Slå med terningen for at få afgjort din videre skæbne',
       posX: 731,
       posY: 487,
     },
 
     {
-      name: 'Isolation',
       message: '',
       posX: 869,
       posY: 62,
     },
     {
-      name: 'Sygeafsnit',
       message: '',
       posX: 309,
       posY: 199,
     },
     {
-      name: 'Skæbne 1',
       message: 'Du bliver pressemedarbejder i Ballerup Kommune med mulighed for forfremmelse.',
       posX: 891,
       posY: 337,
     },
     {
-      name: 'Skæbne 2',
       message: 'Du bliver genansat i dit gamle job som politisk kommentator på TV2 og Euroman laver et dobbeltinterview med dig og Jørgen Leth om at blive fyret og vende stærkt tilbage.',
       posX: 828,
       posY: 464,
     },
     {
-      name: 'Skæbne 3',
       message: 'Du slår dig ned som coach og yogainstruktør på Lolland og hjælper kendte mennesker, som har været igennem mediemøllen, med at komme på fode igen.',
       posX: 847,
       posY: 531,
@@ -544,7 +489,6 @@
       $.each(players, function (index) {
         movePlayerTo(index, 0);
       });
-
     });
   }
 
