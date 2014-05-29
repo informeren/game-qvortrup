@@ -366,17 +366,11 @@
   function initClickHandlers() {
     $('#throwDice').click(function (event) {
       event.preventDefault();
+      var result;
 
-      if (players[currentPlayer].wait > 0) {
-        players[currentPlayer].wait--;
-        nextPlayer();
-        prepareControls();
-      }
-      else {
-        var result = throwDice();
-
-        // TODO: move to separate function?
-        $('#dice1').attr('src', './img/dice' + result + '.png');
+      if (players[currentPlayer].wait === 0) {
+        result = throwDice();
+        updateDice(result);
 
         var currentField = players[currentPlayer].currentField;
         var newField = currentField + result;
@@ -395,6 +389,25 @@
           }
         }
       }
+      else {
+        if (players[currentPlayer].wait > 0) {
+          players[currentPlayer].wait--;
+          nextPlayer();
+          prepareControls();
+        }
+        if (players[currentPlayer].wait < 0) {
+          result = throwDice();
+          updateDice(result);
+
+          if (result > 4) {
+            players[currentPlayer].wait = 0;
+            $(players[currentPlayer].id).animate({ top: '82px', left: '838px'}, 750);
+          }
+
+          nextPlayer();
+          prepareControls();
+        }
+      }
     });
 
     $('#dismiss').click(function (event) {
@@ -402,8 +415,6 @@
 
       $('#message').fadeOut(250, function () {
         $(this).hide();
-
-        // perform additional actions
 
         var currentField = players[currentPlayer].currentField;
         var type = fields[currentField].type;
@@ -420,6 +431,9 @@
             break;
           case 'special':
             newField = fields[currentField].value;
+            if (newField === 50) {
+              players[currentPlayer].wait = -1;
+            }
             movePlayerTo(currentPlayer, newField);
             players[currentPlayer].prevField = fields[currentField].value;
             break;
@@ -428,14 +442,7 @@
         prepareControls();
       });
     });
-  }
 
-  function initGame() {
-    $('#controls').hide();
-    $('#dice2').hide();
-    $('#dice3').hide();
-    $('#message').hide();
-    $('#done').hide();
     $('#buttonStart').click(function (event) {
       event.preventDefault();
 
@@ -461,6 +468,12 @@
         movePlayerTo(index, 0);
       });
     });
+  }
+
+  function initGame() {
+    $('#controls').hide();
+    $('#message').hide();
+    $('#done').hide();
   }
 
   function prepareControls() {
@@ -543,7 +556,9 @@
       $('#message').children('.message').text(fields[fieldIndex].message).parent().fadeIn(250);
     }
     else {
-      nextPlayer();
+      if (fieldIndex !== 49) {
+        nextPlayer();
+      }
       prepareControls();
     }
   }
@@ -559,6 +574,11 @@
   // Return a random number between 1 and 6 (inclusive)
   function throwDice() {
     return Math.floor(Math.random() * 6) + 1;
+  }
+
+  // Update a specific dice graphic.
+  function updateDice(value) {
+    $('#dice1').attr('src', './img/dice' + value + '.png').show();
   }
 
 })(jQuery);
