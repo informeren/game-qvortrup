@@ -17,7 +17,7 @@ Fields
 * **52-54** Destiny fields.
 
 
-Field types
+Event types
 -----------
 
 * **move** Move the player forward or backward after displaying a message.
