@@ -396,10 +396,14 @@
   var numPlayers = 0;
 
   // The max amount of pixels to offset pieces on a field to avoid overlap.
-  var fudgeFactor = 10;
+  var fudgeFactor = 20;
 
   // Keeps track of whose turn it is.
   var currentPlayer = 0;
+
+  // Adjust the position of each piece to cover the fields on the board.
+  var adjustLeft = 20;
+  var adjustTop = 30;
 
   // Inititalize the game.
   $(function() {
@@ -571,12 +575,17 @@
 
     var player = players[playerIndex];
 
-    top += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 30;
-    left += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2 - 10;
+    top -= adjustTop;
+    left -= adjustLeft;
+
+    if (fieldIndex < 50) {
+      top += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2;
+      left += Math.floor(Math.random() * fudgeFactor) - fudgeFactor / 2;
+    }
 
     if (player.prevField === 51) {
-      var specialTop = fields[player.currentField].posY - 30;
-      var specialLeft = fields[player.currentField].posX - 10;
+      var specialTop = fields[player.currentField].posY - adjustTop;
+      var specialLeft = fields[player.currentField].posX - adjustLeft;
 
       players[playerIndex].prevField = 0;
 
