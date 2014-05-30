@@ -543,12 +543,16 @@
         movePlayerTo(index, 0);
       });
     });
+
+    $('#reload').click(function (event) {
+      event.preventDefault();
+      location.reload();
+    });
   }
 
   function initGame() {
     $('#controls').hide();
     $('#message').hide();
-    $('#done').hide();
   }
 
   // Resets the controls at the beginning of a new turn.
@@ -616,11 +620,11 @@
   function movePlayer(playerIndex, fieldIndex) {
     if ('message' in fields[fieldIndex]) {
       if (fieldIndex > 50) {
-        $('#message p.done').show();
+        $('#message p.reload').show();
         $('#message p.dismiss').hide();
       }
       else {
-        $('#message p.done').hide();
+        $('#message p.reload').hide();
         $('#message p.dismiss').show();
       }
 
