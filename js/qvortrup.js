@@ -99,8 +99,8 @@
       posY: 109,
     },
     {
-      // 9: Du møder Ken B. Rasmussen på gårdturen, og I kommer op at slås. Ryk i isolation.
-      message: 'RHUgbfhkZXIgS2VuIEIuIFJhc211c3NlbiBw5SBn5XJkdHVyZW4sIG9nIEkga29tbWVyIG9wIGF0IHNs5XMuIFJ5ayBpIGlzb2xhdGlvbi4=',
+      // 9: Du møder Ken B. Rasmussen på gårdturen, og I kommer op at slås. Ryk i isolation. Slå en 5'er eller en 6'er for at komme ud.
+      message: 'RHUgbfhkZXIgS2VuIEIuIFJhc211c3NlbiBw5SBn5XJkdHVyZW4sIG9nIEkga29tbWVyIG9wIGF0IHNs5XMuIFJ5ayBpIGlzb2xhdGlvbi4gU2zlIGVuIDUnZXIgZWxsZXIgZW4gNidlciBmb3IgYXQga29tbWUgdWQu',
       type: 'special',
       value: 50,
       posX: 787,
@@ -120,8 +120,8 @@
       posY: 230,
     },
     {
-      // 12: Ingen af dine venner vil smugle hash med ind, når de kommer på besøg. Det skaber dårlig stemning på gangen. Ryk i frivillig isolation.
-      message: 'SW5nZW4gYWYgZGluZSB2ZW5uZXIgdmlsIHNtdWdsZSBoYXNoIG1lZCBpbmQsIG7lciBkZSBrb21tZXIgcOUgYmVz+GcuIERldCBza2FiZXIgZOVybGlnIHN0ZW1uaW5nIHDlIGdhbmdlbi4gUnlrIGkgZnJpdmlsbGlnIGlzb2xhdGlvbi4=',
+      // 12: Ingen af dine venner vil smugle hash med ind, når de kommer på besøg. Det skaber dårlig stemning på gangen. Ryk i frivillig isolation. Slå en 5'er eller en 6'er for at komme ud.
+      message: 'SW5nZW4gYWYgZGluZSB2ZW5uZXIgdmlsIHNtdWdsZSBoYXNoIG1lZCBpbmQsIG7lciBkZSBrb21tZXIgcOUgYmVz+GcuIERldCBza2FiZXIgZOVybGlnIHN0ZW1uaW5nIHDlIGdhbmdlbi4gUnlrIGkgZnJpdmlsbGlnIGlzb2xhdGlvbi4gU2zlIGVuIDUnZXIgZWxsZXIgZW4gNidlciBmb3IgYXQga29tbWUgdWQu',
       type: 'special',
       value: 50,
       posX: 814,
@@ -214,16 +214,16 @@
       posY: 362,
     },
     {
-      // 26: Du skylder Torsten fra nabogangen 100.000 kroner og forsøger at sælge ødegården for at skaffe kapital. Men din kone sætter sig imod. Ryk i frivillig isolation.
-      message: 'RHUgc2t5bGRlciBUb3JzdGVuIGZyYSBuYWJvZ2FuZ2VuIDEwMC4wMDAga3JvbmVyIG9nIGZvcnP4Z2VyIGF0IHPmbGdlIPhkZWflcmRlbiBmb3IgYXQgc2thZmZlIGthcGl0YWwuIE1lbiBkaW4ga29uZSBz5nR0ZXIgc2lnIGltb2QuIFJ5ayBpIGZyaXZpbGxpZyBpc29sYXRpb24u',
+      // 26: Du skylder Torsten fra nabogangen 100.000 kroner og forsøger at sælge ødegården for at skaffe kapital. Men din kone sætter sig imod. Ryk i frivillig isolation. Slå en 5'er eller en 6'er for at komme ud.
+      message: 'RHUgc2t5bGRlciBUb3JzdGVuIGZyYSBuYWJvZ2FuZ2VuIDEwMC4wMDAga3JvbmVyIG9nIGZvcnP4Z2VyIGF0IHPmbGdlIPhkZWflcmRlbiBmb3IgYXQgc2thZmZlIGthcGl0YWwuIE1lbiBkaW4ga29uZSBz5nR0ZXIgc2lnIGltb2QuIFJ5ayBpIGZyaXZpbGxpZyBpc29sYXRpb24uIFNs5SBlbiA1J2VyIGVsbGVyIGVuIDYnZXIgZm9yIGF0IGtvbW1lIHVkLg==',
       type: 'special',
       value: 50,
       posX: 490,
       posY: 385,
     },
     {
-      // 27: Store A har maddag, og du får dårlig mave. Ryk til sygeafsnittet.
-      message: 'U3RvcmUgQSBoYXIgbWFkZGFnLCBvZyBkdSBm5XIgZOVybGlnIG1hdmUuIFJ5ayB0aWwgc3lnZWFmc25pdHRldC4=',
+      // 27: Store A har maddag, og du får dårlig mave. Ryk til sygeafsnittet, vent en omgang og fortsæt fra felt 21.
+      message: 'U3RvcmUgQSBoYXIgbWFkZGFnLCBvZyBkdSBm5XIgZOVybGlnIG1hdmUuIFJ5ayB0aWwgc3lnZWFmc25pdHRldCwgdmVudCBlbiBvbWdhbmcgb2cgZm9ydHPmdCBmcmEgZmVsdCAyMS4=',
       type: 'special',
       value: 51,
       posX: 562,
@@ -325,8 +325,8 @@
       posY: 511,
     },
     {
-      // 44: Der går betændelse i din fængselstatovering. Ryk direkte til sygeafsnittet.
-      message: 'RGVyIGflciBiZXTmbmRlbHNlIGkgZGluIGbmbmdzZWxzdGF0b3ZlcmluZy4gUnlrIGRpcmVrdGUgdGlsIHN5Z2VhZnNuaXR0ZXQu',
+      // 44: Der går betændelse i din fængselstatovering. Ryk direkte til sygeafsnittet, vent en omgang og fortsæt fra felt 21.
+      message: 'RGVyIGflciBiZXTmbmRlbHNlIGkgZGluIGbmbmdzZWxzdGF0b3ZlcmluZy4gUnlrIGRpcmVrdGUgdGlsIHN5Z2VhZnNuaXR0ZXQsIHZlbnQgZW4gb21nYW5nIG9nIGZvcnRz5nQgZnJhIGZlbHQgMjEu',
       type: 'special',
       value: 51,
       posX: 471,
@@ -505,6 +505,9 @@
             newField = fields[currentField].value;
             if (newField === 50) {
               players[currentPlayer].wait = -1;
+            }
+            if (newField === 51) {
+              players[currentPlayer].wait = 1;
             }
             movePlayerTo(currentPlayer, newField);
             players[currentPlayer].prevField = fields[currentField].value;
