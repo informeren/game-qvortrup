@@ -7,18 +7,16 @@ We have implemented one minor rule change compared to the print version: To get 
 
 
 Configuration
-=============
+-------------
 
-Fields
-------
+### Fields
 
 * **0-49** Regular fields on the board.
 * **50-51** Special fields: Solitary confinement and infirmary, respectively.
 * **52-54** Destiny fields.
 
 
-Event types
------------
+### Event types
 
 * **move** Move the player forward or backward after displaying a message.
 * **wait** Make the player wait for one or more turns before she is able to roll the dice again.
@@ -26,8 +24,8 @@ Event types
 
 
 Credits
-=======
+-------
 
-* **Idea, rules, and words:** Kristian Villesen
+* **Idea, rules, and words:** Kristian Villesen and Sebastian Abrahamsen
 * **Illustration:** Mia Mottelson
 * **Code:** Morten Wulff
