@@ -28,6 +28,6 @@ Event types
 Credits
 =======
 
-Idea, rules, words: Kristian Villesen og Sebastian
-Graphics: Mia Mottelson
-Code: Morten Wulff
+* **Idea, rules, and words:** Kristian Villesen
+* **Illustration:** Mia Mottelson
+* **Code:** Morten Wulff
