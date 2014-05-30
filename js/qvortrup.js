@@ -277,7 +277,7 @@
     },
     {
       // 36: En kvindelig beundrer har læst et interview med dig i Politiken og kommer på ’ukontrolleret besøg’. Ryk tre felter frem.
-      message: 'RW4ga3ZpbmRlbGlnIGJldW5kcmVyIGhhciBs5nN0IGV0IGludGVydmlldyBtZWQgZGlnIGkgUG9saXRpa2VuIG9nIGtvbW1lciBw5SA=' + '’' + 'dWtvbnRyb2xsZXJldCBiZXP4Zw==' + '’' + 'LiBSeWsgdHJlIGZlbHRlciBmcmVtLg==',
+      message: 'RW4ga3ZpbmRlbGlnIGJldW5kcmVyIGhhciBs5nN0IGV0IGludGVydmlldyBtZWQgZGlnIGkgUG9saXRpa2VuIG9nIGtvbW1lciBw5SAmcnNxdW87dWtvbnRyb2xsZXJldCBiZXP4ZyZyc3F1bzsuIFJ5ayB0cmUgZmVsdGVyIGZyZW0u',
       type: 'move',
       value: 3,
       posX: 537,
